@@ -1,0 +1,109 @@
+/* SearchFilter.module.css */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Search */
+.searchWrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 38px 10px 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-family: var(--font);
+  font-size: .9rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.searchInput::placeholder { color: var(--text-3); }
+.searchInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-3);
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: color .2s;
+}
+.clearBtn:hover { color: var(--text-1); }
+
+/* Filter Buttons */
+.filters { display: flex; gap: 6px; }
+
+.filterBtn {
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-2);
+  font-family: var(--font);
+  font-size: .85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.filterBtn:hover { border-color: var(--accent); color: var(--accent-h); }
+.filterBtn.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-h);
+}
+
+/* New Task Button */
+.newBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.newBtn:hover { background: var(--accent-h); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(99,102,241,.4); }
+.newBtn:active { transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .bar { gap: 10px; }
+  .filters { flex: 1; }
+  .filterBtn { flex: 1; justify-content: center; }
+  .newBtn { width: 100%; justify-content: center; }
+}

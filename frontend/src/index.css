@@ -1,0 +1,102 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0f172a;
+  --bg-card:     #1e293b;
+  --bg-card-h:   #263348;
+  --bg-input:    #162032;
+  --border:      #2d3f55;
+  --border-h:    #4a6080;
+  --text-1:      #f1f5f9;
+  --text-2:      #94a3b8;
+  --text-3:      #64748b;
+  --accent:      #6366f1;
+  --accent-h:    #818cf8;
+  --accent-soft: rgba(99,102,241,.15);
+  --green:       #10b981;
+  --green-soft:  rgba(16,185,129,.15);
+  --amber:       #f59e0b;
+  --amber-soft:  rgba(245,158,11,.15);
+  --red:         #ef4444;
+  --red-soft:    rgba(239,68,68,.12);
+  --radius-sm:   6px;
+  --radius:      12px;
+  --radius-lg:   18px;
+  --shadow:      0 4px 24px rgba(0,0,0,.35);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.3);
+  --font:        'Inter', system-ui, sans-serif;
+  --transition:  all .2s ease;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.task-section { margin-top: 28px; }
+
+/* ── Task Grid ────────────────────────────────────────────────────────────── */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── Skeleton Loading ─────────────────────────────────────────────────────── */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton-card {
+  height: 180px;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-h) 50%, var(--bg-card) 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* ── Error Banner ─────────────────────────────────────────────────────────── */
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  background: var(--red-soft);
+  border: 1px solid rgba(239,68,68,.3);
+  border-radius: var(--radius);
+  color: #fca5a5;
+  font-size: .9rem;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-h); }
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .main-content { padding: 20px 16px 60px; }
+  .task-grid, .skeleton-grid { grid-template-columns: 1fr; }
+}

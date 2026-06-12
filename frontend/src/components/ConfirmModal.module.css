@@ -1,0 +1,90 @@
+/* ConfirmModal.module.css */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 20px;
+  animation: fadeIn .18s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes pop { from { opacity:0; transform: scale(.92) } to { opacity:1; transform: scale(1) } }
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: pop .2s ease;
+}
+
+.iconWrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--red-soft);
+  border: 1px solid rgba(239,68,68,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  color: var(--red);
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: .88rem;
+  color: var(--text-2);
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cancelBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  font-family: var(--font);
+  font-size: .9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.cancelBtn:hover { background: var(--bg-input); color: var(--text-1); }
+
+.deleteBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font);
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.deleteBtn:hover { background: #dc2626; }
